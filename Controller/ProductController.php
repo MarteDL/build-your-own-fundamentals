@@ -1,0 +1,25 @@
+<?php
+declare(strict_types = 1);
+
+class ProductController
+{
+    public function render(array $GET, array $POST)
+    {
+        $products = [
+            [
+                'id' => 1,
+                'name' => 'A guide to brewing the perfect Duvel',
+                'price' => 3.5,
+                'tax' => 0.21,
+            ],
+            [
+                'id' => 2,
+                'name' => 'The secrets of the world wide web',
+                'price' => 9000,
+                'tax' => 0.21,
+            ]
+        ];
+
+        require 'View/productList.php';
+    }
+}
