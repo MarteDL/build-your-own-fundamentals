@@ -36,4 +36,7 @@ if (isset($_GET['page'])) {
         $controller->render($_GET);
     }
 }
+else {
+    $controller->render($_GET);
+}
 

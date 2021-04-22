@@ -29,5 +29,10 @@ class Product
     {
         return $this->price;
     }
+
+    public function getPriceWithTax() : float
+    {
+        return round($this->price * (1 + self::TAX), 2);
+    }
 }
 

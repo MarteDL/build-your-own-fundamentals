@@ -14,12 +14,14 @@ class ArticleController
     public function render(array $GET)
     {
         $articles = ArticleLoader::fetchAllArticles($this->pdo);
+        $pageName = 'Our articles';
         require 'View/articleList.php';
     }
 
     public function showArticleDetail($GET)
     {
         $article = ArticleLoader::fetchArticle($this->pdo, (int)$GET['article_id']);
+        $pageName = $article->getTitle();
         require 'View/articleDetail.php';
     }
 }

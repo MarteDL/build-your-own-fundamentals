@@ -13,6 +13,7 @@ class ProductController
 
     public function render(array $GET)
     {
+        $pageName = 'Our guides';
         $products = ProductLoader::fetchAllProducts($this->pdo);
         require 'View/productList.php';
     }
