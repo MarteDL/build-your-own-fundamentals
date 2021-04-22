@@ -6,7 +6,7 @@ class Product
     private int $id;
     private string $name;
     private float $price;
-    public const TAX = 0.21;
+    private const TAX = 0.21;
 
     public function __construct(int $id, string $name, float $price)
     {

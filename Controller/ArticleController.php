@@ -18,7 +18,7 @@ class ArticleController
         require 'View/articleList.php';
     }
 
-    public function showArticleDetail($GET)
+    public function showArticleDetail(array $GET)
     {
         $article = ArticleLoader::fetchArticle($this->pdo, (int)$GET['article_id']);
         $pageName = $article->getTitle();
