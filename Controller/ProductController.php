@@ -1,25 +1,19 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 class ProductController
 {
-    public function render(array $GET, array $POST)
-    {
-        $products = [
-            [
-                'id' => 1,
-                'name' => 'A guide to brewing the perfect Duvel',
-                'price' => 3.5,
-                'tax' => 0.21,
-            ],
-            [
-                'id' => 2,
-                'name' => 'The secrets of the world wide web',
-                'price' => 9000,
-                'tax' => 0.21,
-            ]
-        ];
+    private PDO $pdo;
 
+    public function __construct()
+    {
+        $connection = new Connection();
+        $this->pdo = $connection->connect();
+    }
+
+    public function render(array $GET)
+    {
+        $products = ProductLoader::fetchAllProducts($this->pdo);
         require 'View/productList.php';
     }
 }

@@ -2,17 +2,10 @@
 declare(strict_types=1);
 require 'Includes/header.php';
 
-$article = null;
-
-foreach ($articles as $articleToCheck) {
-    if ($articleToCheck['slug'] === $_GET['article_slug']) {
-        $article = $articleToCheck;
-    }
-}
-?>
+/** @var Article $article */ ?>
 <article>
-    <h2><?= $article['title'] ?></h2>
-    <p><?= $article['content'] ?></p>
+    <h2><?= $article->getTitle() ?></h2>
+    <p><?= $article->getContent() ?></p>
 </article>
 
 <?php
