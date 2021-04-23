@@ -21,6 +21,10 @@ class ArticleController
     public function showArticleDetail(array $GET)
     {
         $article = ArticleLoader::fetchArticle($this->pdo, (int)$GET['article_id']);
+
+        $prevArticle = ArticleLoader::fetchPrevArticle($this->pdo, $article->getId());
+        $nextArticle = ArticleLoader::fetchNextArticle($this->pdo, $article->getId());
+
         $pageName = $article->getTitle();
         require 'View/articleDetail.php';
     }

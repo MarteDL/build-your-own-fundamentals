@@ -12,7 +12,7 @@ require 'Includes/header.php';
             <?php /** @var Article[] $articles */
             foreach ($articles as $article) : ?>
                 <a class="list-group-item list-group-item-action"
-                   href="?page=article-detail&article_id=<?= $article->getId() ?>">
+                   href="<?= $article->getURL() ?>">
                     <?php echo $article->getTitle() ?>
                 </a>
             <?php endforeach; ?>

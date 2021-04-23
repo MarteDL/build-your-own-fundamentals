@@ -12,7 +12,7 @@ class ArticleLoader
 
         if ($rawArticle == null) {
             http_response_code(404);
-            include('my_404.php'); // provide your own HTML for the error page
+            include('my_404.php');
             die();
         }
 
@@ -36,4 +36,39 @@ class ArticleLoader
 
         return $articles;
     }
+
+    public static function fetchPrevArticle(PDO $pdo, int $id): Article|null
+    {
+        $articles = self::fetchAllArticles($pdo);
+        $index = "";
+
+        foreach ($articles as $key => $article) {
+            if ($article->getId() === $id) {
+                $index = $key;
+            }
+        }
+
+        if ($index === 0) {
+            return null;
+        }
+        return $articles[$index - 1];
+    }
+
+    public static function fetchNextArticle(PDO $pdo, int $id): Article|null
+    {
+        $articles = self::fetchAllArticles($pdo);
+        $index = "";
+
+        foreach ($articles as $key => $article) {
+            if ($article->getId() === $id) {
+                $index = $key;
+            }
+        }
+
+        if ($index === count($articles)-1) {
+            return null;
+        }
+        return $articles[$index + 1];
+    }
+
 }

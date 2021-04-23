@@ -26,9 +26,9 @@ class Article
         return $this->title;
     }
 
-    public function getSlug(): string
+    public function getURL(): string
     {
-        return $this->slug;
+        return "?page=article-detail&article_id=".$this->id;
     }
 
     public function getContent(): string
