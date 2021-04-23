@@ -37,7 +37,7 @@ class ArticleLoader
         return $articles;
     }
 
-    public static function fetchPrevArticle(PDO $pdo, int $id): Article|null
+    public static function fetchPrevArticle(PDO $pdo, int $id): ?Article
     {
         $articles = self::fetchAllArticles($pdo);
         $index = "";
@@ -54,7 +54,7 @@ class ArticleLoader
         return $articles[$index - 1];
     }
 
-    public static function fetchNextArticle(PDO $pdo, int $id): Article|null
+    public static function fetchNextArticle(PDO $pdo, int $id): ?Article
     {
         $articles = self::fetchAllArticles($pdo);
         $index = "";
