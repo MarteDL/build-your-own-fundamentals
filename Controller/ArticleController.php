@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class ArticleController
@@ -11,7 +12,7 @@ class ArticleController
         $this->pdo = $connection->connect();
     }
 
-    public function render(array $GET)
+    public function render()
     {
         $articles = ArticleLoader::fetchAllArticles($this->pdo);
         $pageName = 'Our articles';

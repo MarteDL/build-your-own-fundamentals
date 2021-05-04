@@ -33,10 +33,8 @@ if (isset($_GET['page'])) {
         $controller = new ArticleController();
         $controller->showArticleDetail($_GET);
     } else {
-        $controller->render($_GET);
+        $controller->render();
     }
+} else {
+    $controller->render();
 }
-else {
-    $controller->render($_GET);
-}
-

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class ArticleLoader
@@ -16,9 +17,11 @@ class ArticleLoader
             die();
         }
 
-        return new Article((int)$rawArticle['id'], $rawArticle['title'],
-            $rawArticle['slug'], $rawArticle['content']);
-
+        return new Article(
+            (int)$rawArticle['id'],
+            $rawArticle['title'],
+            $rawArticle['content']
+        );
     }
 
     /** @Article[] */
@@ -30,8 +33,11 @@ class ArticleLoader
         $articles = [];
 
         foreach ($rawData as $rawArticle) {
-            $articles[] = new Article((int)$rawArticle['id'], $rawArticle['title'],
-                $rawArticle['slug'], $rawArticle['content']);
+            $articles[] = new Article(
+                (int)$rawArticle['id'],
+                $rawArticle['title'],
+                $rawArticle['content']
+            );
         }
 
         return $articles;
@@ -70,5 +76,4 @@ class ArticleLoader
         }
         return $articles[$index + 1];
     }
-
 }

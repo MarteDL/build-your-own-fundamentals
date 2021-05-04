@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 class Product
 {
@@ -30,9 +31,8 @@ class Product
         return $this->price;
     }
 
-    public function getPriceWithTax() : float
+    public function getPriceWithTax(): float
     {
         return round($this->price * (1 + self::TAX), 2);
     }
 }
-

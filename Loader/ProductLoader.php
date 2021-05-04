@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class ProductLoader
@@ -12,8 +13,11 @@ class ProductLoader
         $products = [];
 
         foreach ($rawData as $rawProduct) {
-            $products[] = new Product((int)$rawProduct['id'], $rawProduct['name'],
-                (float)$rawProduct['price']);
+            $products[] = new Product(
+                (int)$rawProduct['id'],
+                $rawProduct['name'],
+                (float)$rawProduct['price']
+            );
         }
 
         return $products;

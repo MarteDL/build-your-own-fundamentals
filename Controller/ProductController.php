@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class ProductController
@@ -11,7 +12,7 @@ class ProductController
         $this->pdo = $connection->connect();
     }
 
-    public function render(array $GET)
+    public function render()
     {
         $pageName = 'Our guides';
         $products = ProductLoader::fetchAllProducts($this->pdo);
